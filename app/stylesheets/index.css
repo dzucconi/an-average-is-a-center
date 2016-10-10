@@ -20,17 +20,13 @@ body {
   font-family: sans-serif;
 }
 
-.label,
-.needle {
-  opacity: 0;
-}
-
 .label {
   padding: 20px;
   font-weight: bold;
-  letter-spacing: 1px;
   font-size: 14px;
+  opacity: 0.5;
   transition: opacity 0.25s;
+  text-align: center;
 }
 
 .needle {
@@ -38,24 +34,20 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
   transition: opacity 1s;
 }
   .needle__north,
   .needle__south {
-    width: 0;
-    height: 0;
+    width: 3px;
+    height: 200px;
   }
   .needle__north {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 200px solid red;
+    background-color: red;
+    color: red;
   }
-  .needle__south {
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 200px solid black;
-  }
-    .needle__north__north {
+    .needle__north:before {
+      content: 'N';
       position: absolute;
       bottom: 100%;
       left: 50%;
@@ -63,18 +55,26 @@ body {
       font-size: 14px;
     }
 
-@media (max-height: 480px) {
-  .needle__north {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 100px solid red;
-  }
   .needle__south {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 100px solid black;
+    background-color: black;
+    color: black;
   }
-    .needle__north__north {
+    .needle__south:before {
+      content: 'S';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      font-size: 14px;
+    }
+
+@media (max-height: 480px) {
+  .needle__north,
+  .needle__south {
+    width: 2px;
+    height: 100px;
+  }
+    .needle__north:before {
       font-size: 10px;
     }
 }
