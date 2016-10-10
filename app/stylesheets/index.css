@@ -1,0 +1,80 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+}
+
+.label,
+.needle {
+  opacity: 0;
+}
+
+.label {
+  padding: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: opacity 0.25s;
+}
+
+.needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 1s;
+}
+  .needle__north,
+  .needle__south {
+    width: 0;
+    height: 0;
+  }
+  .needle__north {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 200px solid red;
+  }
+  .needle__south {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 200px solid black;
+  }
+    .needle__north__north {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
+    }
+
+@media (max-height: 480px) {
+  .needle__north {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 100px solid red;
+  }
+  .needle__south {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 100px solid black;
+  }
+    .needle__north__north {
+      font-size: 10px;
+    }
+}
